@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可视区域加载（JavaScript）</title>
+    <style>
+        img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 30px;
+            min-height: 400px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <img lazyload="http://img.tuku.cn/file_thumb/201504/m2015041617184549.jpg" src="">
+    <img lazyload="http://img.tuku.cn/file_thumb/201504/m2015041617184444.jpg" src="">
+    <img lazyload="http://img.tuku.cn/file_thumb/201504/m2015041617184256.jpg" src="">
+    <img lazyload="http://img.tuku.cn/file_thumb/201504/m2015041617184092.jpg" src="">
+    <img lazyload="http://img.tuku.cn/file_thumb/201504/m2015041617184681.jpg" src="">
+    <script>
+        var imgObj = document.getElementsByTagName("img");
+        var arrNew = Array.from(imgObj);
+        //可视区域高度
+        var clients = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        window.onload = lazyload();
+
+        function lazyload() {
+            arrNew.forEach(function (val) {
+                if (val.getBoundingClientRect().top < clients) {
+                    if (val.getAttribute("src") == "") {
+                        val.src = val.getAttribute("lazyload");
+                    }
+                }
+            })
+        }
+        window.onscroll = lazyload;
+    </script>
+</body>
+
+</html>

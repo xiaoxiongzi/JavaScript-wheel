@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .scrolldiv {
+            width: 500px;
+            height: 400px;
+            margin: 10px auto;
+            background-color: #ff0000;
+            overflow-y: scroll;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scrolldiv" id="testDiv">
+        <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+    <script>
+        var divscroll = document.getElementById("testDiv");
+
+        function divScro() {
+            var wholeHeight = divscroll.scrollHeight;
+            var scrollTop = divscroll.scrollTop;
+            var divHeight = divscroll.clientHeight;
+            if (scrollTop + divHeight >= wholeHeight) {
+                alert("div滚动到底部了！");
+            }
+            if (scrollTop == 0) {
+                alert("滚动到头部了！");
+            }
+        }
+        divscroll.onscroll = divScro;
+    </script>
+</body>
+
+</html>

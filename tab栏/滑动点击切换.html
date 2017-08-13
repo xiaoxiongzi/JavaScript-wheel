@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tab栏滑动点击切换效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .tab {
+            margin: 20px auto;
+            width: 298px;
+            height: 98px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .title {
+            position: relative;
+            height: 27px;
+        }
+
+        .title ul {
+            position: absolute;
+            left: -1px;
+            top: 0;
+            width: 301px;
+        }
+
+        .title li {
+            float: left;
+            list-style: none;
+        }
+
+        .title a {
+            text-decoration: none;
+            display: inline-block;
+            width: 58px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 0 1px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        a:hover {
+            color: #F90;
+        }
+
+        li .select {
+            background-color: #fff;
+            border-bottom-color: #fff;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            padding: 0;
+        }
+
+        .content .mod {
+            margin: 15px 10px 10px 19px;
+        }
+
+        .content .mod ul li {
+            float: left;
+            width: 134px;
+            height: 28px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="title" id="titles">
+            <ul>
+                <li><a href="#">公告</a></li>
+                <li><a href="#">规则</a></li>
+                <li><a href="#">论坛</a></li>
+                <li><a href="#">安全</a></li>
+                <li><a href="#" class="select">公益</a></li>
+            </ul>
+        </div>
+        <div class="content" id="content">
+            <div class="mod" style="display:none">
+                <ul>
+                    <li><a href="#">张勇：要玩快乐足球</a></li>
+                    <li><a href="#">阿里2000万援助灾区</a></li>
+                    <li><a href="#">旅游宝让你边玩边挣钱</a></li>
+                    <li><a href="#">多行跟进阿里信用贷款</a></li>
+                </ul>
+            </div>
+            <div class="mod" style="display:none">
+                <ul>
+                    <li><a href="#">[通知]"滥发"即将换新</a></li>
+                    <li><a href="#">[通知]"滥发"即将换新</a></li>
+                    <li><a href="#">禁发商品目录</a></li>
+                    <li><a href="#">[通知]"滥发"即将换新</a></li>
+                </ul>
+            </div>
+            <div class="mod" style="display:none">
+                <ul>
+                    <li><a href="#">张勇：要玩快乐足球</a></li>
+                    <li><a href="#">阿里2000万援助灾区</a></li>
+                    <li><a href="#">旅游宝让你边玩边挣钱</a></li>
+                    <li><a href="#">多行跟进阿里信用贷款</a></li>
+                </ul>
+            </div>
+            <div class="mod" style="display:none">
+                <ul>
+                    <li><a href="#">金牌卖家在起航</a></li>
+                    <li><a href="#">又爱又恨优惠券</a></li>
+                    <li><a href="#">旅游宝让你边玩边挣钱</a></li>
+                    <li><a href="#">多行跟进阿里信用贷款</a></li>
+                </ul>
+            </div>
+            <div class="mod">
+                <ul>
+                    <li><a href="#">走进无声课堂</a></li>
+                    <li><a href="#">淘宝之行大众评审赢公益</a></li>
+                    <li><a href="#">爱心品牌联合征集</a></li>
+                    <li><a href="#">名公益机构淘宝开店攻略</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        var titles = $("titles").getElementsByTagName("a");
+        var divs = $("content").getElementsByTagName("div");
+        for (var i = 0; i < titles.length; i++) {
+            titles[i].id = i;
+            titles[i].onmouseover = function () {
+                for (var j = 0; j < titles.length; j++) {
+                    titles[j].className = '';
+                    divs[j].style.display = 'none';
+                }
+                this.className = 'select';
+                divs[this.id].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
