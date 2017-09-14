@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片预加载之无序加载</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            margin: 100px 0;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            line-height: 30px;
+            height: 30px;
+            outline: 0;
+            background-color: #eee;
+            color: #333;
+            padding: 5px 10px;
+        }
+
+        img {
+            width: 640px;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="http://image5.tuku.cn/wallpaper/Landscape%20Wallpapers/8294_2560x1600.jpg" alt="" id="img">
+        <p>
+            <a href="javascript:" class="btn" data-control="prev">上一页</a>
+            <a href="javascript:" class="btn" data-control="next">下一页</a>
+        </p>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+    <script src="preload02.js"></script>
+    <script>
+        var imgs = [
+            'http://image5.tuku.cn/wallpaper/Landscape%20Wallpapers/8294_2560x1600.jpg',
+            'http://www.deskcar.com/desktop/fengjing/2011722123730/1.jpg',
+            'http://www.33lc.com/article/UploadPic/2012-8/20128181071010672.jpg',
+            'http://www.bbra.cn/Uploadfiles/imgs/2016/11/02/tu2/001.jpg',
+            'http://www.ctskyril.com/Public/article/2015-05-29/556812ea53938_thumb.jpg',
+            'http://www.doudouxitong.net/uploads/allimg/151221/1-15122114433V39.jpg',
+            'http://d.5857.com/zirfengg_141208/001.jpg',
+            'http://pic1.win4000.com/wallpaper/4/53fee27a01094.jpg',
+            'http://pic1.win4000.com/wallpaper/1/56821f8bb1e23.jpg'
+        ];
+        var len = imgs.length;
+        var index=0;
+
+        $.preload(imgs, {
+            order: 'ordered'
+        });
+
+        $('.btn').on('click', function () {
+            if ($(this).data('control') === 'prev') {
+                /*  相当于
+                 *  index--
+                 *  if(index<0){
+                 *      index=0
+                 *  }
+                 */
+                index = Math.max(0, --index);
+            } else {
+                index = Math.min(len - 1, ++index);
+            }
+            document.title = (index + 1) + '/' + len;
+            $("#img").attr("src", imgs[index]);
+        })
+    </script>
+</body>
+
+</html>

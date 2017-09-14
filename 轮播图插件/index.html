@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+    <script src="Carousel.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #lunbo{
+            margin: 100px auto;
+        }
+        .leftBtn{
+            display: block;
+            width: 40px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 150px;
+            margin-top: -25px;
+        }
+        .rightBtn{
+            display: block;
+            width: 40px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 460px;
+            top: 150px;
+            margin-top: -25px;
+        }
+        .circles{
+            position: absolute;
+            top: 270px;
+            left: 250px;
+            margin-left: -68px;
+        }
+        .circles li{
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background-color: green;
+            list-style: none;
+            float: left;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        .circles li.current{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="lunbo"></div>
+    <script>
+        //创建轮播图实例
+        var c = new Carousel({
+            "id" : "lunbo",
+            "images":[
+                "img/0.png",
+                "img/1.png",
+                "img/2.png",
+                "img/3.png",
+                "img/4.png",
+                "img/5.png",
+            ],
+            "height" : 300,
+            "width" : 500,
+            "animateDuration" : 500,
+            "interval" : 1000 
+        })
+    </script>
+</body>
+</html>
