@@ -14,3 +14,6 @@
 - [可视区域加载（JQ）](https://xiaoxiongzi.github.io/JavaScript-wheel/JS%E5%92%8CJQ%E5%AE%BD%E9%AB%98%E7%9A%84%E5%BA%94%E7%94%A8/%E5%8F%AF%E8%A7%86%E5%8C%BA%E5%9F%9F%E5%8A%A0%E8%BD%BD%EF%BC%88JQ%EF%BC%89.html)
 - [div滚动到底部加载（JavaScript）](https://xiaoxiongzi.github.io/JavaScript-wheel/JS%E5%92%8CJQ%E5%AE%BD%E9%AB%98%E7%9A%84%E5%BA%94%E7%94%A8/div%E6%BB%9A%E5%8A%A8%E5%88%B0%E5%BA%95%E9%83%A8%E5%8A%A0%E8%BD%BD%EF%BC%88JavaScript%EF%BC%89.html
 )
+
+### 03. 一个简单的轮播图插件
+- [以面向对象开发一个简单的轮播图插件](https://xiaoxiongzi.github.io/JavaScript-wheel/%E8%BD%AE%E6%92%AD%E5%9B%BE%E6%8F%92%E4%BB%B6/index.html)
